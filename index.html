@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Kye Dixon, Will you be my Valentine? 💖</title>
+<title>Kye Will You Be My Valentine ❤️</title>
 
 <style>
 body {
@@ -27,6 +27,7 @@ body {
 
 h1 {
   font-size: 40px;
+  min-height: 60px;
 }
 
 img {
@@ -69,23 +70,43 @@ button {
 <body>
 
 <div class="container">
-  <h1>Kye Dixon, Will you be my Valentine? 💖</h1>
+  <h1 id="question">Kye Will You Be My Valentine ❤️</h1>
 
-  <!-- CHANGE YOUR GIF HERE -->
-  <img src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExOWVhbXlnMnJid3l5aWpsYTdrOHJkN2V2a2V4Z2N2aGgxcnhpc2t3NCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/IzXiddo2twMmdmU8Lv/giphy.gif">
+  <!-- CHANGE GIF HERE -->
+  <img src="https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExMGdsZDNzczRsZTBnMnR2cGJuZWhqOG9wa3Q0ZjdjZ2Zod2s3OHFvNCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/SYo1DFS8NLhhqzzjMU/giphy.gif">
 
   <br>
 
-  <button class="yes" id="yesBtn" onclick="sayYes()">YES Handsome ❤️</button>
-  <button class="no" id="noBtn" onmouseover="runAway()">NO Ugly Butt 😤</button>
+  <button class="yes" id="yesBtn" onclick="sayYes()">YES ❤️</button>
+  <button class="no" id="noBtn" onmouseover="runAway()">NO 😤</button>
 </div>
 
 <script>
-let noCount = 0;
+let count = 0;
+
+const messages = [
+"Baby Please!!! :(",
+"Kye Seriously Please :/",
+"Stop Bae I Want You!",
+"Okay This Isn't Funny Anymore",
+"Thats Enough! Princess STOP!",
+"I'm Refunding All Fortnite Skins!",
+"And Valorant Skins!!!",
+"Just Say Yes Pretty Girl",
+"Last Warning Kye! 😡"
+];
+
+const yesMessages = [
+"Yes | Kye click this",
+"Yes | I'm over here",
+"Yes | Are you joking?",
+"Yes | Just click me!"
+];
 
 function runAway() {
   const noBtn = document.getElementById("noBtn");
   const yesBtn = document.getElementById("yesBtn");
+  const question = document.getElementById("question");
 
   // Move NO button
   noBtn.style.position = "absolute";
@@ -93,17 +114,25 @@ function runAway() {
   noBtn.style.left = Math.random() * (window.innerWidth - 100) + "px";
 
   // Increase YES size
-  noCount++;
-  let scale = 1 + noCount * 0.2;
+  count++;
+  let scale = 1 + count * 0.2;
   yesBtn.style.transform = `scale(${scale})`;
+
+  // Change main text
+  if (count <= messages.length) {
+    question.innerText = messages[count - 1];
+  }
+
+  // Change YES text (loops)
+  yesBtn.innerText = yesMessages[(count - 1) % yesMessages.length];
 }
 
 function sayYes() {
   document.body.innerHTML = `
     <div style="text-align:center;color:white;">
-      <h1 style="font-size:60px;">YAY!!! ❤️🥰</h1>
-      <p style="font-size:28px;">You just made me the happiest person ever!</p>
-      <img src="https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExMGdsZDNzczRsZTBnMnR2cGJuZWhqOG9wa3Q0ZjdjZ2Zod2s3OHFvNCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/SYo1DFS8NLhhqzzjMU/giphy.gif" width="300">
+      <h1 style="font-size:60px;">YAY!!! ❤️</h1>
+      <p style="font-size:28px;">Thank You Pretty Princess i love you!</p>
+      <img src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExOWVhbXlnMnJid3l5aWpsYTdrOHJkN2V2a2V4Z2N2aGgxcnhpc2t3NCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/IzXiddo2twMmdmU8Lv/giphy.gif" width="300">
     </div>
   `;
 }
