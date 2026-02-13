@@ -1,13 +1,38 @@
-<!doctype html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Kye Dixon, My Princess, Will You Be My Valentine?</title>
-    </head>
-    <body>
-        <div id="root"></div>
-        <script type="module" src="/src/main.tsx"></script>
-    </body>
+<!DOCTYPE html>
+<html>
+<head>
+<title>Be My Valentine ❤️</title>
+<style>
+body {
+  background: pink;
+  text-align: center;
+  font-family: Arial;
+  margin-top: 100px;
+}
+button {
+  font-size: 20px;
+  padding: 15px 30px;
+  margin: 20px;
+  cursor: pointer;
+}
+</style>
+</head>
+<body>
+
+<h1>Will you be my Valentine? 💖</h1>
+
+<button onclick="yes()">YES ❤️</button>
+<button onclick="no()">NO 😡</button>
+
+<script>
+function yes() {
+  document.body.innerHTML = "<h1>YAY!!! I LOVE YOU ❤️🥰</h1>";
+}
+
+function no() {
+  alert("Wrong answer 😤 Try again!");
+}
+</script>
+
+</body>
 </html>
