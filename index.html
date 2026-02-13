@@ -1,36 +1,70 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="en">
 <head>
-<title>Be My Valentine ❤️</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Will you be my Valentine? ❤️</title>
+
 <style>
 body {
-  background: pink;
+  background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: Arial, sans-serif;
   text-align: center;
-  font-family: Arial;
-  margin-top: 100px;
+  margin: 0;
 }
+
+.container {
+  background: white;
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+h1 {
+  font-size: 40px;
+  margin-bottom: 30px;
+}
+
 button {
   font-size: 20px;
   padding: 15px 30px;
-  margin: 20px;
+  margin: 10px;
+  border: none;
+  border-radius: 10px;
   cursor: pointer;
 }
+
+.yes { background: #ff4d6d; color: white; }
+.no { background: #ccc; }
 </style>
 </head>
+
 <body>
 
-<h1>Will you be my Valentine? 💖</h1>
+<div class="container">
+  <h1>Will you be my Valentine? 💖</h1>
 
-<button onclick="yes()">YES ❤️</button>
-<button onclick="no()">NO 😡</button>
+  <button class="yes" onclick="sayYes()">YES ❤️</button>
+  <button class="no" onclick="moveButton(this)">NO 😡</button>
+</div>
 
 <script>
-function yes() {
-  document.body.innerHTML = "<h1>YAY!!! I LOVE YOU ❤️🥰</h1>";
+function sayYes() {
+  document.body.innerHTML = `
+    <h1 style="color:white;font-size:60px;">
+      YAY!!! I LOVE YOU ❤️🥰
+    </h1>
+  `;
 }
 
-function no() {
-  alert("Wrong answer 😤 Try again!");
+function moveButton(btn) {
+  btn.style.position = "absolute";
+  btn.style.top = Math.random() * window.innerHeight + "px";
+  btn.style.left = Math.random() * window.innerWidth + "px";
 }
 </script>
 
