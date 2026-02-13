@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Be My Valentine ❤️</title>
+<title>Kye Dixon, Will you be my Valentine? 💖</title>
 
 <style>
 body {
@@ -27,12 +27,11 @@ body {
 
 h1 {
   font-size: 40px;
-  margin-bottom: 20px;
 }
 
 img {
   width: 200px;
-  margin-bottom: 20px;
+  margin: 20px 0;
 }
 
 button {
@@ -69,34 +68,44 @@ button {
 
 <body>
 
-<div class="container" id="main">
-  <h1>Kye Dixon Will you be my Valentine? 💖</h1>
+<div class="container">
+  <h1>Kye Dixon, Will you be my Valentine? 💖</h1>
 
-  <!-- 👇 PASTE YOUR GIF LINK HERE -->
-  <img src="https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExdXQ4dW9oN2N6ZzEzN2U2ZmVsY3BpdzZzcmNjNzhnNTdmdGdzamRlYiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/SYo1DFS8NLhhqzzjMU/giphy.gif">
+  <!-- CHANGE YOUR GIF HERE -->
+  <img src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExOWVhbXlnMnJid3l5aWpsYTdrOHJkN2V2a2V4Z2N2aGgxcnhpc2t3NCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/IzXiddo2twMmdmU8Lv/giphy.gif">
 
   <br>
 
-  <button class="yes" onclick="sayYes()">YES ❤️</button>
-  <button class="no" id="noBtn" onmouseover="runAway()">NO 😤</button>
+  <button class="yes" id="yesBtn" onclick="sayYes()">YES Handsome ❤️</button>
+  <button class="no" id="noBtn" onmouseover="runAway()">NO Ugly Butt 😤</button>
 </div>
 
 <script>
+let noCount = 0;
+
+function runAway() {
+  const noBtn = document.getElementById("noBtn");
+  const yesBtn = document.getElementById("yesBtn");
+
+  // Move NO button
+  noBtn.style.position = "absolute";
+  noBtn.style.top = Math.random() * (window.innerHeight - 50) + "px";
+  noBtn.style.left = Math.random() * (window.innerWidth - 100) + "px";
+
+  // Increase YES size
+  noCount++;
+  let scale = 1 + noCount * 0.2;
+  yesBtn.style.transform = `scale(${scale})`;
+}
+
 function sayYes() {
   document.body.innerHTML = `
     <div style="text-align:center;color:white;">
       <h1 style="font-size:60px;">YAY!!! ❤️🥰</h1>
       <p style="font-size:28px;">You just made me the happiest person ever!</p>
-      <img src="https://media.giphy.com/media/5GoVLqeAOo6PK/giphy.gif" width="300">
+      <img src="https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExMGdsZDNzczRsZTBnMnR2cGJuZWhqOG9wa3Q0ZjdjZ2Zod2s3OHFvNCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/SYo1DFS8NLhhqzzjMU/giphy.gif" width="300">
     </div>
   `;
-}
-
-function runAway() {
-  const btn = document.getElementById("noBtn");
-  btn.style.position = "absolute";
-  btn.style.top = Math.random() * (window.innerHeight - 50) + "px";
-  btn.style.left = Math.random() * (window.innerWidth - 100) + "px";
 }
 
 function createHeart() {
@@ -106,7 +115,6 @@ function createHeart() {
   heart.style.left = Math.random() * 100 + "vw";
   heart.style.animationDuration = (Math.random() * 3 + 3) + "s";
   document.body.appendChild(heart);
-
   setTimeout(() => heart.remove(), 6000);
 }
 
